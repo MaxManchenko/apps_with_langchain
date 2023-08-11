@@ -1,0 +1,19 @@
+# local package
+python-dotenv
+langchain
+openai
+google-api-python-client # Google API
+google-search-results # SerpAPI
+youtube-transcript-api
+chromadb
+tiktoken
+faiss-cpu
+wikipedia
+
+# external requirements
+# click
+# Sphinx
+# coverage
+# awscli
+# flake8
+# python-dotenv>=0.5.1
