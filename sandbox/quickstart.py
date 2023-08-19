@@ -1,4 +1,3 @@
-import textwrap
 from dotenv import find_dotenv, load_dotenv
 
 from langchain import HuggingFaceHub
@@ -21,7 +20,7 @@ prompt = PromptTemplate(template=template, input_variables=["product"])
 
 # Initialise and run the LLM
 repo_id = "google/flan-t5-xxl"  # https://huggingface.co/google/flan-t5-xxl
-llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.6})
+llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.6})  # type: ignore
 llm_chain = LLMChain(prompt=prompt, llm=llm)
 print(llm_chain.run(product))
 
@@ -29,7 +28,7 @@ print(llm_chain.run(product))
 # Memory: Add State to Chains and Agents
 # --------------------------------------------------------------
 repo_id = "google/flan-t5-xxl"  # https://huggingface.co/google/flan-t5-xxl
-llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.6})
+llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.6})  # type: ignore
 conversation = ConversationChain(llm=llm, verbose=True)
 
 output = conversation.predict(input="Hi there!")
@@ -48,7 +47,7 @@ prompt = PromptTemplate(template=template, input_variables=["product"])
 
 # Initialise and run the LLM
 repo_id = "google/flan-t5-xxl"  # https://huggingface.co/google/flan-t5-xxl
-llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.6})
+llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.6})  # type: ignore
 
 chain = LLMChain(llm=llm, prompt=prompt)
 print(chain.run(product))
@@ -61,7 +60,7 @@ prompt = "In what year was Python released and who is original creator?"
 
 # Initialize and run the LLM
 repo_id = "google/flan-t5-xxl"  # https://huggingface.co/google/flan-t5-xxl
-llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.7})
+llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.7})  # type: ignore
 
 get_all_tool_names()
 tools = load_tools(["wikipedia", "llm-math"], llm=llm)
