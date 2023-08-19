@@ -1,3 +1,4 @@
+import textwrap
 from dotenv import find_dotenv, load_dotenv
 
 from langchain import HuggingFaceHub
@@ -60,12 +61,18 @@ prompt = "In what year was Python released and who is original creator?"
 
 # Initialize and run the LLM
 repo_id = "google/flan-t5-xxl"  # https://huggingface.co/google/flan-t5-xxl
-llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.6})
+llm = HuggingFaceHub(repo_id=repo_id, model_kwargs={"temperature": 0.7})
 
 get_all_tool_names()
 tools = load_tools(["wikipedia", "llm-math"], llm=llm)
 
 # Initialize an agent with the tools, the LLM, and the agent type
 agent = AgentType.ZERO_SHOT_REACT_DESCRIPTION
-agent_chain = initialize_agent(tools, llm=llm, agent=agent, verbose=True)
+agent_chain = initialize_agent(
+    tools,
+    llm=llm,
+    agent=agent,
+    verbose=True,
+    handle_parsing_errors=True,
+)
 print(agent_chain.run(prompt))
