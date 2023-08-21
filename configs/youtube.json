@@ -1,12 +1,12 @@
 {
     "llm_hf":{
         "repo_id":"google/flan-t5-xxl",
-        "model_kwargs": {"temperature": 0.0}
+        "model_kwargs": {"temperature": 0.1}
     },
     "embeddings_hf": {
         "model_name": "sentence-transformers/all-mpnet-base-v2",
         "model_kwargs": {"device": "cpu"},
-        "encode_kwargs": {"normalize_embeddings": False}
+        "encode_kwargs": {"normalize_embeddings": false}
     },
     "vector_db": {
         "chunk_size": 800,
