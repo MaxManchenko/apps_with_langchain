@@ -10,6 +10,7 @@ faiss-cpu==1.7.4
 wikipedia==1.4.0
 huggingface-hub==0.16.4
 tiktoken==0.4.0
+tenacity==8.2.2
 tokenizers==0.13.3
 torch==2.0.1
 torchvision==0.15.2
