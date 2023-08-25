@@ -29,8 +29,8 @@ test_environment.py
 setup.py
 tox.ini
 
-notebooks
-data
+sandbox
+test
 docs
 
 app/__pycache__
