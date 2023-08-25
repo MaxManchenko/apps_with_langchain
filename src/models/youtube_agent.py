@@ -362,3 +362,5 @@ yta = YouTubeAgent(video_url=video_url, config_path=config_path)
 agent = yta.build_agent()
 result1 = run_query(agent, query1)
 result2 = run_query(agent, query2)
+
+type(result1)
