@@ -208,6 +208,7 @@ class YouTubeAgent:
 
     load_dotenv(find_dotenv())  # Load environment variables
     logging.basicConfig(level=logging.INFO)
+    
 
     def __init__(self, video_url, config_path, *, k=3, fetch_k=5):
         """_summary_
@@ -364,3 +365,19 @@ result1 = run_query(agent, query1)
 result2 = run_query(agent, query2)
 
 type(result1)
+
+
+# ------------------------------------------------------
+# Test with Redis
+# ------------------------------------------------------
+from models.YouTubeAgentRedis import YouTubeAgent
+from src.utils.query_runner import run_query
+
+config_path = "configs/youtube.json"
+video_url = "https://www.youtube.com/watch?v=L_Guz73e6fw"
+query1 = "What are they saying about Microsoft?"
+query2 = "What are they saying about OpenAI?"
+
+yta = YouTubeAgent(video_url=video_url, config_path=config_path)
+agent = yta.build_agent()
+result1 = run_query(agent, query1)

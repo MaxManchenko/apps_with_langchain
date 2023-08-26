@@ -32,6 +32,7 @@ tox.ini
 sandbox
 test
 docs
+faiss_index
 
 app/__pycache__
 models/__pycache__
