@@ -47,12 +47,6 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff:
-*.log
-
-# Sphinx documentation
-docs/_build/
-
 # PyBuilder
 target/
 
@@ -62,9 +56,6 @@ target/
 # Database
 *.db
 *.rdb
-
-# Pycharm
-.idea
 
 # VS Code
 .vscode/
@@ -78,14 +69,7 @@ target/
 # exclude data from source control by default
 /data/
 
-# Mac OS-specific storage files
-.DS_Store
-
-# vim
-*.swp
-*.swo
-
 # Mypy cache
 .mypy_cache/
 
-faiss_index
+.pytest_cache/

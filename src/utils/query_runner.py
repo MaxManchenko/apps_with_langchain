@@ -1,11 +1,11 @@
 import logging
 
-from tenacity import retry, stop_after_attempt, wait_fixed, retry_if_exception
+from tenacity import retry, stop_after_attempt, wait_fixed
 
 logging.basicConfig(level=logging.INFO)
 
 
-@retry(stop=stop_after_attempt(3), wait=wait_fixed(3), retry=retry_if_exception)
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(3))
 def run_query(qa_instance, query):
     """Wrapper for additional 'retry' functionality:
     make it possibe to call an Langchain instance several times
