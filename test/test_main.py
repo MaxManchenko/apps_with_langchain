@@ -19,8 +19,8 @@ def test_get_answer():
     response = client.post(
         "/get_answer",
         json={
-            "video_url": "https://www.youtube.com/watch?v=L_Guz73e6fw",
-            "question": "What are they saying about Microsoft?",
+            "video_url": "https://www.youtube.com/watch?v=vRVVyl9uaZc",
+            "question": "What did he say about data classes in Python?",
         },
     )
     assert response.status_code == 200
