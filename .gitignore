@@ -73,3 +73,7 @@ target/
 .mypy_cache/
 
 .pytest_cache/
+docs
+LICENSE
+Makefile
+test_environment.py
