@@ -1,9 +1,12 @@
 version: "3"
 services:
-  your-service:
-    build: ./
+  web-server:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
     image: youtube-agent
     env_file:
       - ./.env
     ports:
       - "80:80"
+

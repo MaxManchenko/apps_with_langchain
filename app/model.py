@@ -1,12 +1,22 @@
-from models.YouTubeAgent import YouTubeAgent
+from models.YouTubeAgent import Initializer, YouTubeAgent
 from src.utils.query_runner import run_query
 
-config_path = "configs/youtube.json"
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
+
 
 def run_youtube_agent(video_url, query):
-    yta = YouTubeAgent(video_url=video_url, config_path=config_path)
-    agent = yta.build_agent()
+    """_summary_
+
+    Args:
+        video_url (URL): a YouTube video URL
+        query (str): request
+
+    Returns:
+        (YouTubeAgent instance, answer)
+    """
+    initializer = Initializer()
+    yta = YouTubeAgent(video_url=video_url, initializer=initializer)
+    agent = yta.run()
     answer = run_query(agent, query)
-    return answer
+    return agent, answer

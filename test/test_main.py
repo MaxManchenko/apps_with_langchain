@@ -10,7 +10,7 @@ def test_home():
     assert response.status_code == 200
     assert response.json() == {
         "health_check": "OK",
-        "model_version": "0.1.0",
+        "model_version": "0.2.0",
     }  # Replace "0.1.0" with the actual model_version if it's different
 
 
