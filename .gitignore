@@ -77,3 +77,4 @@ docs
 LICENSE
 Makefile
 test_environment.py
+tox.ini
