@@ -43,30 +43,44 @@ Your Intelligent YouTube Assistant should now be up and running on http://localh
 
 ## How to Use
 
-1. **Health Check**
+### Health Check
+
 Open your browser and go to http://localhost:8000 to check if the application is running. You should see a JSON response like **{"health_check":"OK","model_version":"0.2.0"}**.
 
-2. **Post a Query**
-You can use Postman or similar tools to post a query.
+### Sending a Request with a New Video URL
 
-- **First Query (With Video URL):**
+1. **Open Postman**: Launch the Postman application on your computer.
+2. **Set Request Type**: Select `POST` as the request type.
+3. **Enter URL**: In the URL field, enter `http://localhost:8000/get_answer`.
+4. **Add Request Body**: In the "Body" section, set the format to `JSON` and add the following JSON object:
 
-``POST http://localhost:8000/get_answer``
+    ```json
+    {
+      "video_url": "https://www.youtube.com/watch?v=example",
+      "question": "Your question here"
+    }
+    ```
 
-JSON Payload:
-```
-{
-  "video_url": "https://www.youtube.com/watch?v=example",
-  "question": "What is the video about?"
-}
-```
+5. **Send Request**: Click on the "Send" button. You will receive an answer along with an `interaction_id`.
 
-This will return an answer along with an **"interaction_id"**.
+### Sending a Follow-up Request without a New Video URL
 
-- **Subsequent Queries (Same Video):**
-Use the **"interaction_id"** received in the previous response as a cookie to ask more questions about the same video.
+1. **Reuse `interaction_id`**: Use the same `interaction_id` from the previous response as a cookie to ask more questions about the same video.
+2. **Set Request Type**: Select `POST` as the request type.
+3. **Enter URL**: In the URL field, enter `http://localhost:8000/get_answer`.
+4. **Add Request Body**: In the "Body" section, set the format to `JSON` and add the following JSON object:
 
-Cookie: **interaction_id=<your_interaction_id_here>**
+    ```json
+    {
+      "question": "Your follow-up question here"
+    }
+    ```
+
+5. **Add Cookie**: Add a cookie with the name `interaction_id` and the value from the previous response.
+
+    Cookie: **interaction_id=<your_interaction_id_here>**
+
+6. **Send Request**: Click on the "Send" button to get an answer to your follow-up question.
 
 3. **Logs and Debugging**
 Docker logs can provide debugging information if needed.
