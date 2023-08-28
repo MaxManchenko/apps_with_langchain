@@ -47,7 +47,6 @@ Your Intelligent YouTube Assistant should now be up and running on http://localh
 Open your browser and go to http://localhost:8000 to check if the application is running. You should see a JSON response like **{"health_check":"OK","model_version":"0.2.0"}**.
 
 2. **Post a Query**
-
 You can use Postman or similar tools to post a query.
 
 - **First Query (With Video URL):**
@@ -65,13 +64,11 @@ JSON Payload:
 This will return an answer along with an **"interaction_id"**.
 
 - **Subsequent Queries (Same Video):**
-
 Use the **"interaction_id"** received in the previous response as a cookie to ask more questions about the same video.
 
 Cookie: **interaction_id=<your_interaction_id_here>**
 
 3. **Logs and Debugging**
-
 Docker logs can provide debugging information if needed.
 
 ``docker-compose logs``
